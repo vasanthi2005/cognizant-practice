@@ -1,0 +1,1158 @@
+1.public class WelcomeMessage {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+2.import java.util.Scanner;
+
+public class CalculatorApp {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the first value: ");
+        double value1 = sc.nextDouble();
+
+        System.out.print("Enter the second value: ");
+        double value2 = sc.nextDouble();
+
+        System.out.println("Select an operation:");
+        System.out.println("1. Add");
+        System.out.println("2. Subtract");
+        System.out.println("3. Multiply");
+        System.out.println("4. Divide");
+
+        System.out.print("Enter option (1-4): ");
+        int operation = sc.nextInt();
+
+        double output;
+
+        switch (operation) {
+            case 1:
+                output = value1 + value2;
+                System.out.println("Sum: " + output);
+                break;
+            case 2:
+                output = value1 - value2;
+                System.out.println("Difference: " + output);
+                break;
+            case 3:
+                output = value1 * value2;
+                System.out.println("Product: " + output);
+                break;
+            case 4:
+                if (value2 != 0) {
+                    output = value1 / value2;
+                    System.out.println("Quotient: " + output);
+                } else {
+                    System.out.println("Error: Cannot divide by zero.");
+                }
+                break;
+            default:
+                System.out.println("Invalid selection.");
+        }
+
+        sc.close();
+    }
+}
+
+3.import java.util.Scanner;
+
+public class EvenOddTest {
+    public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
+
+        System.out.print("Input an integer: ");
+        int inputNumber = reader.nextInt();
+
+        if (inputNumber % 2 == 0) {
+            System.out.println(inputNumber + " is even.");
+        } else {
+            System.out.println(inputNumber + " is odd.");
+        }
+
+        reader.close();
+    }
+}
+
+4.import java.util.Scanner;
+
+public class LeapYearValidator {
+    public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
+
+        System.out.print("Input a year: ");
+        int inputYear = reader.nextInt();
+
+        if (inputYear % 4 == 0) {
+            if (inputYear % 100 != 0 || inputYear % 400 == 0) {
+                System.out.println(inputYear + " is a leap year.");
+            } else {
+                System.out.println(inputYear + " is not a leap year.");
+            }
+        } else {
+            System.out.println(inputYear + " is not a leap year.");
+        }
+
+        reader.close();
+    }
+}
+
+5.import java.util.Scanner;
+
+public class TimesTableGenerator {
+    public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
+
+        System.out.print("Input a number: ");
+        int baseNum = reader.nextInt();
+
+        System.out.println("Table for: " + baseNum);
+        for (int i = 1; i <= 10; i++) {
+            int product = baseNum * i;
+            System.out.println(baseNum + " x " + i + " = " + product);
+        }
+
+        reader.close();
+    }
+}
+
+6.public class PrimitiveTypesDemo {
+    public static void main(String[] args) {
+        int age = 25;
+        float height = 12.5f;
+        double salary = 123.456;
+        char grade = 'A';
+        boolean isPassed = true;
+
+        System.out.println("Age: " + age);
+        System.out.println("Height: " + height);
+        System.out.println("Salary: " + salary);
+        System.out.println("Grade: " + grade);
+        System.out.println("Passed: " + isPassed);
+    }
+}
+
+7.public class CastingDemo {
+    public static void main(String[] args) {
+        double piValue = 9.75;
+        int intFromDouble = (int) piValue;
+
+        System.out.println("Double value: " + piValue);
+        System.out.println("Converted to int: " + intFromDouble);
+
+        int count = 7;
+        double doubleFromInt = count;
+
+        System.out.println("Int value: " + count);
+        System.out.println("Converted to double: " + doubleFromInt);
+    }
+}
+
+8.public class PrecedenceExample {
+    public static void main(String[] args) {
+        int calc1 = 10 + 5 * 2;
+        int calc2 = (10 + 5) * 2;
+        int calc3 = 20 - 5 + 3;
+        int calc4 = 100 / 10 * 2;
+
+        System.out.println("10 + 5 * 2 = " + calc1);
+        System.out.println("(10 + 5) * 2 = " + calc2);
+        System.out.println("20 - 5 + 3 = " + calc3);
+        System.out.println("100 / 10 * 2 = " + calc4);
+    }
+}
+
+9.import java.util.Scanner;
+
+public class MarksToGrade {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your score (0-100): ");
+        int score = scanner.nextInt();
+
+        char resultGrade;
+
+        if (score >= 90 && score <= 100) {
+            resultGrade = 'A';
+        } else if (score >= 80) {
+            resultGrade = 'B';
+        } else if (score >= 70) {
+            resultGrade = 'C';
+        } else if (score >= 60) {
+            resultGrade = 'D';
+        } else if (score >= 0) {
+            resultGrade = 'F';
+        } else {
+            System.out.println("Invalid score entered.");
+            scanner.close();
+            return;
+        }
+
+        System.out.println("Assigned Grade: " + resultGrade);
+        scanner.close();
+    }
+}
+
+10.import java.util.Scanner;
+import java.util.Random;
+
+public class GuessGame {
+    public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
+        Random rng = new Random();
+
+        int targetNumber = rng.nextInt(100) + 1;
+        int guessedNumber = 0;
+
+        System.out.println("Number Guessing Challenge!");
+        System.out.println("Try to guess the number between 1 and 100.");
+
+        while (guessedNumber != targetNumber) {
+            System.out.print("Your guess: ");
+            guessedNumber = reader.nextInt();
+
+            if (guessedNumber < targetNumber) {
+                System.out.println("Too low. Try again.");
+            } else if (guessedNumber > targetNumber) {
+                System.out.println("Too high. Try again.");
+            } else {
+                System.out.println("You nailed it! Great job.");
+            }
+        }
+
+        reader.close();
+    }
+}
+
+10.import java.util.Scanner;
+import java.util.Random;
+
+public class RandomGuessGame {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random generator = new Random();
+
+        int secretNumber = generator.nextInt(100) + 1;
+        int userAttempt = 0;
+
+        System.out.println("Number Guessing Challenge!");
+        System.out.println("Try to guess the number between 1 and 100.");
+
+        while (userAttempt != secretNumber) {
+            System.out.print("Your guess: ");
+            userAttempt = scanner.nextInt();
+
+            if (userAttempt < secretNumber) {
+                System.out.println("Too low. Try again.");
+            } else if (userAttempt > secretNumber) {
+                System.out.println("Too high. Try again.");
+            } else {
+                System.out.println("Correct! Well done.");
+            }
+        }
+
+        scanner.close();
+    }
+}
+
+11.import java.util.Scanner;
+
+public class FactorialFinder {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a non-negative number: ");
+        int inputNum = scanner.nextInt();
+
+        if (inputNum < 0) {
+            System.out.println("Factorial not defined for negatives.");
+        } else {
+            long result = 1;
+            for (int i = 1; i <= inputNum; i++) {
+                result *= i;
+            }
+            System.out.println("Factorial of " + inputNum + " is: " + result);
+        }
+
+        scanner.close();
+    }
+}
+
+12.public class AddMethodOverload {
+
+    public static int sum(int x, int y) {
+        return x + y;
+    }
+
+    public static double sum(double x, double y) {
+        return x + y;
+    }
+
+    public static int sum(int x, int y, int z) {
+        return x + y + z;
+    }
+
+    public static void main(String[] args) {
+        int res1 = sum(10, 20);
+        double res2 = sum(5.5, 7.3);
+        int res3 = sum(1, 2, 3);
+
+        System.out.println("Sum of 2 ints: " + res1);
+        System.out.println("Sum of 2 doubles: " + res2);
+        System.out.println("Sum of 3 ints: " + res3);
+    }
+}
+
+13.import java.util.Scanner;
+
+public class FibonacciRecursion {
+
+    public static int fib(int n) {
+        if (n == 1) return 0;
+        if (n == 2) return 1;
+        return fib(n - 1) + fib(n - 2);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter position n: ");
+        int pos = scanner.nextInt();
+
+        if (pos <= 0) {
+            System.out.println("Please enter a positive number.");
+        } else {
+            System.out.println("Fibonacci at position " + pos + " is: " + fib(pos));
+        }
+
+        scanner.close();
+    }
+}
+
+14.import java.util.Scanner;
+
+public class ArraySumAvg {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter total numbers: ");
+        int count = scanner.nextInt();
+        int[] data = new int[count];
+
+        System.out.println("Input " + count + " integers:");
+        for (int i = 0; i < count; i++) {
+            data[i] = scanner.nextInt();
+        }
+
+        int total = 0;
+        for (int value : data) {
+            total += value;
+        }
+
+        double mean = (double) total / count;
+        System.out.println("Total: " + total);
+        System.out.println("Average: " + mean);
+
+        scanner.close();
+    }
+}
+
+15.import java.util.Scanner;
+
+public class ReverseText {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter text: ");
+        String input = scanner.nextLine();
+
+        String reversedLoop = "";
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversedLoop += input.charAt(i);
+        }
+
+        String reversedBuilder = new StringBuilder(input).reverse().toString();
+
+        System.out.println("Loop reversed: " + reversedLoop);
+        System.out.println("Builder reversed: " + reversedBuilder);
+
+        scanner.close();
+    }
+}
+
+16.import java.util.Scanner;
+
+public class PalindromeValidator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String original = scanner.nextLine();
+
+        String clean = original.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+
+        boolean valid = true;
+        int len = clean.length();
+        for (int i = 0; i < len / 2; i++) {
+            if (clean.charAt(i) != clean.charAt(len - 1 - i)) {
+                valid = false;
+                break;
+            }
+        }
+
+        if (valid) {
+            System.out.println("\"" + original + "\" is a palindrome.");
+        } else {
+            System.out.println("\"" + original + "\" is not a palindrome.");
+        }
+
+        scanner.close();
+    }
+}
+
+17.class Vehicle {
+    String manufacturer;
+    String type;
+    int yearBuilt;
+
+    Vehicle(String m, String t, int y) {
+        manufacturer = m;
+        type = t;
+        yearBuilt = y;
+    }
+
+    void showSpecs() {
+        System.out.println("Brand: " + manufacturer);
+        System.out.println("Type: " + type);
+        System.out.println("Year: " + yearBuilt);
+    }
+}
+
+public class VehicleDemo {
+    public static void main(String[] args) {
+        Vehicle v1 = new Vehicle("Ford", "Fusion", 2017);
+        Vehicle v2 = new Vehicle("Tesla", "Model 3", 2020);
+
+        System.out.println("First Vehicle:");
+        v1.showSpecs();
+
+        System.out.println("\nSecond Vehicle:");
+        v2.showSpecs();
+    }
+}
+
+18.class Creature {
+    void speak() {
+        System.out.println("Generic animal sound");
+    }
+}
+
+class Puppy extends Creature {
+    @Override
+    void speak() {
+        System.out.println("Woof");
+    }
+}
+
+public class InheritanceTest {
+    public static void main(String[] args) {
+        Creature one = new Creature();
+        one.speak();
+
+        Puppy two = new Puppy();
+        two.speak();
+    }
+}
+
+19.interface Instrument {
+    void makeMusic();
+}
+
+class Violin implements Instrument {
+    public void makeMusic() {
+        System.out.println("Playing violin smoothly.");
+    }
+}
+
+class Drum implements Instrument {
+    public void makeMusic() {
+        System.out.println("Beating the drums.");
+    }
+}
+
+public class InstrumentDemo {
+    public static void main(String[] args) {
+        Instrument v = new Violin();
+        Instrument d = new Drum();
+
+        v.makeMusic();
+        d.makeMusic();
+    }
+}
+
+20.import java.util.Scanner;
+
+public class SafeDivision {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter numerator: ");
+        int top = scanner.nextInt();
+
+        System.out.print("Enter denominator: ");
+        int bottom = scanner.nextInt();
+
+        try {
+            int outcome = top / bottom;
+            System.out.println("Division result: " + outcome);
+        } catch (ArithmeticException ex) {
+            System.out.println("Error: Cannot divide by zero.");
+        }
+
+        scanner.close();
+    }
+}
+
+21.import java.util.Scanner;
+
+class UnderageException extends Exception {
+    public UnderageException(String msg) {
+        super(msg);
+    }
+}
+
+public class AgeValidator {
+    static void validateAge(int inputAge) throws UnderageException {
+        if (inputAge < 18) {
+            throw new UnderageException("Minimum age required is 18. You entered: " + inputAge);
+        } else {
+            System.out.println("Valid age: " + inputAge);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your age: ");
+        int ageInput = scanner.nextInt();
+
+        try {
+            validateAge(ageInput);
+        } catch (UnderageException ex) {
+            System.out.println("Caught Exception: " + ex.getMessage());
+        }
+
+        scanner.close();
+    }
+}
+
+22.import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class WriteToFile {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Input text to write into file: ");
+        String content = scanner.nextLine();
+
+        try {
+            FileWriter fileWriter = new FileWriter("output.txt");
+            fileWriter.write(content);
+            fileWriter.close();
+            System.out.println("Successfully written to file.");
+        } catch (IOException e) {
+            System.out.println("File writing error occurred.");
+            e.printStackTrace();
+        }
+
+        scanner.close();
+    }
+}
+
+23.import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadFromFile {
+    public static void main(String[] args) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("output.txt"));
+            String currentLine;
+
+            System.out.println("Reading content from output.txt:");
+            while ((currentLine = br.readLine()) != null) {
+                System.out.println(currentLine);
+            }
+
+            br.close();
+        } catch (IOException e) {
+            System.out.println("Error while reading file.");
+            e.printStackTrace();
+        }
+    }
+}
+
+24.import java.util.ArrayList;
+import java.util.Scanner;
+
+public class StudentListApp {
+    public static void main(String[] args) {
+        ArrayList<String> names = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Type student names (enter 'exit' to finish):");
+
+        while (true) {
+            System.out.print("Enter name: ");
+            String entry = scanner.nextLine();
+            if (entry.equalsIgnoreCase("exit")) break;
+            names.add(entry);
+        }
+
+        System.out.println("\nEntered Student Names:");
+        for (String n : names) {
+            System.out.println(n);
+        }
+
+        scanner.close();
+    }
+}
+
+25.import java.util.HashMap;
+import java.util.Scanner;
+
+public class StudentDirectory {
+    public static void main(String[] args) {
+        HashMap<Integer, String> directory = new HashMap<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Add students (ID and name). Enter -1 as ID to stop:");
+
+        while (true) {
+            System.out.print("Enter ID: ");
+            int id = scanner.nextInt();
+            if (id == -1) break;
+            scanner.nextLine();
+            System.out.print("Enter name: ");
+            String name = scanner.nextLine();
+            directory.put(id, name);
+        }
+
+        System.out.print("\nSearch by student ID: ");
+        int lookupId = scanner.nextInt();
+
+        if (directory.containsKey(lookupId)) {
+            System.out.println("Found: " + directory.get(lookupId));
+        } else {
+            System.out.println("Student not found with ID " + lookupId);
+        }
+
+        scanner.close();
+    }
+}
+
+26.class TextPrinter implements Runnable {
+    private String text;
+    private int repeat;
+
+    public TextPrinter(String text, int repeat) {
+        this.text = text;
+        this.repeat = repeat;
+    }
+
+    public void run() {
+        for (int i = 0; i < repeat; i++) {
+            System.out.println(text + " - Round: " + (i + 1));
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+                System.out.println("Thread interrupted.");
+            }
+        }
+    }
+}
+
+public class MultiThreadDemo {
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new TextPrinter("Alpha thread", 5));
+        Thread t2 = new Thread(new TextPrinter("Beta thread", 5));
+
+        t1.start();
+        t2.start();
+    }
+}
+27.import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class LambdaSorter {
+    public static void main(String[] args) {
+        List<String> nameList = new ArrayList<>();
+        nameList.add("Zara");
+        nameList.add("Brian");
+        nameList.add("Amir");
+        nameList.add("Nina");
+        nameList.add("Liam");
+
+        System.out.println("Before:");
+        System.out.println(nameList);
+
+        Collections.sort(nameList, (a, b) -> a.compareToIgnoreCase(b));
+
+        System.out.println("\nAfter:");
+        System.out.println(nameList);
+    }
+}
+
+28.import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class EvenFilterWithStream {
+    public static void main(String[] args) {
+        List<Integer> numberList = new ArrayList<>();
+        numberList.add(8);
+        numberList.add(3);
+        numberList.add(16);
+        numberList.add(7);
+        numberList.add(24);
+        numberList.add(31);
+
+        System.out.println("All numbers:");
+        System.out.println(numberList);
+
+        List<Integer> evens = numberList.stream()
+            .filter(n -> n % 2 == 0)
+            .collect(Collectors.toList());
+
+        System.out.println("\nFiltered evens:");
+        System.out.println(evens);
+    }
+}
+
+29.import java.util.List;
+import java.util.stream.Collectors;
+
+public class PersonRecordDemo {
+    record Person(String name, int age) {}
+
+    public static void main(String[] args) {
+        List<Person> people = List.of(
+            new Person("Ravi", 19),
+            new Person("Neha", 22),
+            new Person("Om", 17),
+            new Person("Sara", 28),
+            new Person("Kiran", 15)
+        );
+
+        System.out.println("Everyone:");
+        people.forEach(System.out::println);
+
+        List<Person> adults = people.stream()
+            .filter(p -> p.age() >= 18)
+            .collect(Collectors.toList());
+
+        System.out.println("\nAdults:");
+        adults.forEach(System.out::println);
+    }
+}
+
+30.public class SwitchPatternDemo {
+
+    public static void describeType(Object val) {
+        String message = switch (val) {
+            case Integer i -> "Integer: " + i;
+            case String s -> "String: '" + s + "'";
+            case Double d -> "Double: " + d;
+            case null -> "Value is null";
+            default -> "Other type: " + val.getClass().getSimpleName();
+        };
+
+        System.out.println(message);
+    }
+
+    public static void main(String[] args) {
+        describeType(99);
+        describeType("Java");
+        describeType(6.28);
+        describeType(true);
+        describeType(null);
+    }
+}
+31.
+CREATE DATABASE school;
+
+USE school;
+
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+);
+
+INSERT INTO students VALUES (1, 'Alice', 20), (2, 'Bob', 22), (3, 'Charlie', 19);
+
+java:
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class JDBCStudentFetcher {
+
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/school";
+        String user = "root"; // replace with your username
+        String pass = "your_password"; // replace with your password
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(url, user, pass);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM students");
+
+            System.out.println("Student Records:");
+            while (rs.next()) {
+                int studentId = rs.getInt("id");
+                String studentName = rs.getString("name");
+                int studentAge = rs.getInt("age");
+                System.out.println("ID: " + studentId + ", Name: " + studentName + ", Age: " + studentAge);
+            }
+
+            rs.close();
+            stmt.close();
+            conn.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+32.SQL:
+-- SQL Setup
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+);
+
+JAVA:
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class StudentDBHandler {
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/school";
+    private static final String DB_USER = "root";
+    private static final String DB_PASS = "your_password";
+
+    public boolean addStudent(int id, String name, int age) {
+        String sql = "INSERT INTO students (id, name, age) VALUES (?, ?, ?)";
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            stmt.setString(2, name);
+            stmt.setInt(3, age);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateStudent(int id, String name, int age) {
+        String sql = "UPDATE students SET name = ?, age = ? WHERE id = ?";
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, name);
+            stmt.setInt(2, age);
+            stmt.setInt(3, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        StudentDBHandler handler = new StudentDBHandler();
+        System.out.println("Insert successful? " + handler.addStudent(4, "David", 21));
+        System.out.println("Update successful? " + handler.updateStudent(4, "David Johnson", 22));
+    }
+}
+
+33.SQL:
+CREATE DATABASE bankdb;
+USE bankdb;
+CREATE TABLE accounts (
+    account_id INT PRIMARY KEY,
+    account_holder VARCHAR(50),
+    balance DECIMAL(10,2)
+);
+INSERT INTO accounts VALUES
+(1, 'Alice', 1000.00),
+(2, 'Bob', 500.00);
+
+JAVA:
+import java.sql.*;
+
+public class TransactionExample {
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/bankdb";
+    private static final String DB_USER = "root";
+    private static final String DB_PASS = "your_password";
+
+    public void transferFunds(int from, int to, double amount) {
+        String debit = "UPDATE accounts SET balance = balance - ? WHERE account_id = ?";
+        String credit = "UPDATE accounts SET balance = balance + ? WHERE account_id = ?";
+
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+            conn.setAutoCommit(false);
+            try (PreparedStatement debitStmt = conn.prepareStatement(debit);
+                 PreparedStatement creditStmt = conn.prepareStatement(credit)) {
+
+                debitStmt.setDouble(1, amount);
+                debitStmt.setInt(2, from);
+                creditStmt.setDouble(1, amount);
+                creditStmt.setInt(2, to);
+
+                int debitSuccess = debitStmt.executeUpdate();
+                int creditSuccess = creditStmt.executeUpdate();
+
+                if (debitSuccess == 1 && creditSuccess == 1) {
+                    conn.commit();
+                    System.out.println("Transfer successful!");
+                } else {
+                    conn.rollback();
+                    System.out.println("Transfer failed.");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        new TransactionExample().transferFunds(1, 2, 200.00);
+    }
+}
+
+34.module com.utils {
+    exports com.utils;
+}
+
+package com.utils;
+public class StringUtils {
+    public static String greet(String name) {
+        return "Hello, " + name + "!";
+    }
+}
+
+module com.greetings {
+    requires com.utils;
+}
+
+package com.greetings;
+import com.utils.StringUtils;
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(StringUtils.greet("Praneetha"));
+    }
+}
+35. import java.io.*;
+import java.net.*;
+
+public class NetworkServer {
+    public static void main(String[] args) {
+        int socketPort = 12345;
+
+        try (ServerSocket servSocket = new ServerSocket(socketPort)) {
+            System.out.println("Server initiated. Waiting...");
+            Socket client = servSocket.accept();
+            System.out.println("Connected to client.");
+
+            BufferedReader inputFromClient = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            PrintWriter outputToClient = new PrintWriter(client.getOutputStream(), true);
+            BufferedReader inputFromServer = new BufferedReader(new InputStreamReader(System.in));
+
+            String recvMsg, sendMsg;
+
+            while (true) {
+                if ((recvMsg = inputFromClient.readLine()) != null) {
+                    System.out.println("Client: " + recvMsg);
+                }
+                System.out.print("Server: ");
+                sendMsg = inputFromServer.readLine();
+                if (sendMsg.equalsIgnoreCase("exit")) {
+                    System.out.println("Shutting down server...");
+                    break;
+                }
+                outputToClient.println(sendMsg);
+            }
+
+            client.close();
+            System.out.println("Disconnected.");
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+
+import java.io.*;
+import java.net.*;
+
+public class NetworkClient {
+    public static void main(String[] args) {
+        String host = "localhost";
+        int connPort = 12345;
+
+        try (Socket clientSocket = new Socket(host, connPort)) {
+            System.out.println("Client is connected.");
+
+            BufferedReader inputFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            PrintWriter outputToServer = new PrintWriter(clientSocket.getOutputStream(), true);
+            BufferedReader inputFromClient = new BufferedReader(new InputStreamReader(System.in));
+
+            String recvFromServer, msgToSend;
+
+            while (true) {
+                if ((recvFromServer = inputFromServer.readLine()) != null) {
+                    System.out.println("Server: " + recvFromServer);
+                }
+
+                System.out.print("Client: ");
+                msgToSend = inputFromClient.readLine();
+                if (msgToSend.equalsIgnoreCase("exit")) {
+                    System.out.println("Exiting client...");
+                    break;
+                }
+                outputToServer.println(msgToSend);
+            }
+
+            clientSocket.close();
+            System.out.println("Client disconnected.");
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+
+36. import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+public class GithubAPIClient {
+    public static void main(String[] args) {
+        try {
+            HttpClient http = HttpClient.newHttpClient();
+            HttpRequest req = HttpRequest.newBuilder()
+                    .uri(new URI("https://api.github.com/users/octocat"))
+                    .GET()
+                    .build();
+            HttpResponse<String> res = http.send(req, HttpResponse.BodyHandlers.ofString());
+            System.out.println("Code: " + res.statusCode());
+            System.out.println("Body:");
+            System.out.println(res.body());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+
+37. public class BytecodeDemo {
+    public int calculate(int x, int y) {
+        return x + y;
+    }
+
+    public static void main(String[] args) {
+        BytecodeDemo demo = new BytecodeDemo();
+        int output = demo.calculate(4, 9);
+        System.out.println("Output: " + output);
+    }
+}
+
+38. public class DecompileSample {
+    public static void main(String[] args) {
+        int num1 = 15;
+        int num2 = 25;
+        int total = num1 + num2;
+        System.out.println("Total is: " + total);
+    }
+}
+
+39. public class Human {
+    public void hello() {
+        System.out.println("Hi there!");
+    }
+
+    public void welcome(String name) {
+        System.out.println("Hi, " + name + "!");
+    }
+}
+
+import java.lang.reflect.*;
+
+public class ReflectTest {
+    public static void main(String[] args) {
+        try {
+            Class<?> cls = Class.forName("Human");
+            Method[] methodList = cls.getDeclaredMethods();
+            for (Method m : methodList) {
+                System.out.println("Function: " + m.getName());
+                for (Class<?> p : m.getParameterTypes()) {
+                    System.out.println("  Param Type: " + p.getName());
+                }
+            }
+            Object obj = cls.getDeclaredConstructor().newInstance();
+            Method m1 = cls.getDeclaredMethod("hello");
+            m1.invoke(obj);
+            Method m2 = cls.getDeclaredMethod("welcome", String.class);
+            m2.invoke(obj, "Ravi");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+40. public class ThreadsVirtual {
+    public static void main(String[] args) {
+        long start = System.currentTimeMillis();
+        for (int j = 0; j < 100000; j++) {
+            int id = j;
+            Thread.startVirtualThread(() -> {
+                Math.pow(id, 2);
+            });
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("Elapsed: " + (end - start) + " ms");
+    }
+}
+
+41. import java.util.concurrent.*;
+import java.util.*;
+
+public class CallableJobs {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        ExecutorService service = Executors.newFixedThreadPool(3);
+        List<Callable<String>> jobList = new ArrayList<>();
+        for (int k = 1; k <= 5; k++) {
+            int id = k;
+            jobList.add(() -> {
+                Thread.sleep(1000);
+                return "Finished Task " + id;
+            });
+        }
+        List<Future<String>> results = service.invokeAll(jobList);
+        for (Future<String> result : results) {
+            System.out.println(result.get());
+        }
+        service.shutdown();
+    }
+}
+

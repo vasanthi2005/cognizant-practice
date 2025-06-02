@@ -1,0 +1,142 @@
+/* General Reset and Body Styling */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  line-height: 1.6;
+}
+
+/* Navigation Styles */
+nav {
+  background-color: #004080;
+  padding: 1em;
+  display:flex   
+  text-align: center;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+nav a:hover {
+  color: #ffcc00;
+}
+
+/* Section Styling */
+section {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Welcome Banner */
+#welcomeBanner {
+  background-color: lightblue;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Highlighted Text */
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+/* Image Styling */
+.event-img {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #555;
+}
+
+/* Table Styling */
+table, th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  border-collapse: collapse;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Link States */
+a:link { color: blue; }
+a:visited { color: purple; }
+a:hover { color: green; }
+a:active { color: red; }
+
+/* List Styling (optional, if using <ul>/<li> in nav) */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+nav li {
+  padding: 5px 0;
+  margin: 5px;
+}
+
+/* Input Focus */
+input:focus {
+  outline: 2px solid blue;
+}
+
+/* Visibility Comparison */
+.hiddenElement {
+  visibility: hidden;
+}
+.removedElement {
+  display: none;
+}
+
+/* Multi-column Layout */
+.newsArticle {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+}
+
+/* Typography and Gradients */
+h2 {
+  background: linear-gradient(to right, #4A90E2, #9013FE);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.description {
+  text-align: justify;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #004080;
+  color: white;
+}
+ 
